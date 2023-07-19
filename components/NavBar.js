@@ -1,20 +1,39 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
 export default function NavBar() {
-    const router = useRouter();
-    return (
-        <nav>
-            <img src="/vercel.svg" />
-            <div>
-                <Link legacyBehavior href="/">
-                    <a className={router.pathname === "/" ? "active" : ""}>Home</a>
-                </Link>
-                <Link legacyBehavior href="/about">
-                    <a className={router.pathname === "/about" ? "active" : ""}>About</a>
-                </Link>
-            </div>
-            <style jsx>{`
+  const router = useRouter();
+  // const [currentDate, setCurrentDate] = useState("");
+
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     const date = new Date().toLocaleDateString("en-US", {
+  //       year: "numeric",
+  //       month: "long",
+  //       day: "numeric",
+  //     });
+  //     setCurrentDate(date);
+  //   }, 1000); // Update every sec(you can adjust the interval as needed)
+
+  //   return () => clearInterval(intervalId);
+  // }, []);
+
+
+  return (
+    <nav>
+      <img src="/Vintage-Movie-Camera-Icon.svg" />
+      <h4>the top 20 most popular movies</h4>
+      {/* <h4>{currentDate}</h4> */}
+      <div>
+        <Link legacyBehavior href="/">
+          <a className={router.pathname === "/" ? "active" : ""}>Home</a>
+        </Link>
+        <Link legacyBehavior href="/about">
+          <a className={router.pathname === "/about" ? "active" : ""}>About</a>
+        </Link>
+      </div>
+      <style jsx>{`
         nav {
           display: flex;
           gap: 10px;
@@ -28,6 +47,7 @@ export default function NavBar() {
         img {
           max-width: 100px;
           margin-bottom: 5px;
+          height: 80px;
         }
         nav a {
           font-weight: 600;
@@ -41,6 +61,6 @@ export default function NavBar() {
           gap: 10px;
         }
       `}</style>
-        </nav>
-    );
+    </nav>
+  );
 }
